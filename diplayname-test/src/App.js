@@ -82,14 +82,14 @@ setFullName(fullName);
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            required
+            
           />
         </label>
         <br />
         <button type="submit" disabled={isSubmitEnabled}>Submit</button>
         </form>
         <div>
-        {fullName && <p>Full Name: {fullName}</p>}
+        {firstName && lastName && <p>Full Name: {fullName}</p>}
       </div>
     </>
   );
