@@ -70,6 +70,7 @@ setFullName(fullName);
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
+            required
           />
         </label>
         <br />
