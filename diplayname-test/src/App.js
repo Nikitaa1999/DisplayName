@@ -1,24 +1,93 @@
-import logo from './logo.svg';
-import './App.css';
+
+import {useEffect, useState} from 'react';
+
 
 function App() {
+   const [firstName, setFirstName]= useState("");
+   const [lastName, setLastName]= useState("")
+   const [fullName, setFullName]=useState("")
+   const [clicked, setClicked]=useState(false)
+
+  // const handleClick=()=>{
+
+
+  //  setClicked(true);
+    
+  // }
+
+  // useEffect(()=>{
+  //   setFullName({firstName}+" "+{LastName});
+  //   return fullName;
+  // },[clicked])
+
+  // const handleFirstName=(e)=>{
+  //   setFirstName(e.target.value);
+  // }
+
+  // const handleLastName=(e)=>{
+  //   setLastName(e.target.value);
+  // }
+  // return (
+  //   <div className="App">
+  //    <h1>Full Name Display</h1>
+  //    First Name <input label="First Name" onChange={(e)=>handleFirstName(e)}/>
+  //    <br />
+  //    Last Name  <input label="First Name" onChange={(e)=>handleLastName(e)}/>
+  //    <br />
+  //    <button onClick={handleClick()}>Submit</button>
+  //    {clicked?
+  //     (<div>Full Name: {fullName}</div>):(<div></div>)
+  //    }
+     
+  //   </div>
+  // );
+
+
+  // function search(formData) {
+  //   const firstName = formData.get("firstName");
+  //   const lastName = formData.get("latstName");
+  //   const fn = `${firstName} ${lastName}`;
+  //   setFullName(fn);
+    
+  // }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const fullName = `${firstName} ${lastName}`;
+    
+    
+setFullName(fullName);
+  };
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <h1>Full Name Display</h1>
+    <form onSubmit={handleSubmit}>
+        <label>
+          First Name:
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          Last Name:
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </label>
+        <br />
+        <button type="submit">Submit</button>
+        </form>
+        <div>
+        {fullName && <p>Full Name: {fullName}</p>}
+      </div>
+    </>
   );
 }
 
