@@ -86,13 +86,13 @@ setFullName(fullName);
           />
         </label>
         <br />
-        <button type="submit" disabled={isSubmitEnabled}>Submit</button>
+        <button type="submit" >Submit</button>
         </form>
-        <div>
-        {firstName && lastName && <p>Full Name: {fullName}</p>}
-      </div>
+        
+        {firstName && lastName && fullName && <p>Full Name: {fullName}</p>}
+      
     </>
   );
-}
+} 
 
 export default App;
