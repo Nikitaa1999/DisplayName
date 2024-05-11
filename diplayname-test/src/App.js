@@ -6,7 +6,7 @@ function App() {
    const [firstName, setFirstName]= useState("");
    const [lastName, setLastName]= useState("")
    const [fullName, setFullName]=useState("")
-   const [clicked, setClicked]=useState(false)
+   const [isSubmitEnabled, setIsSubmitEnabled]=useState(false)
 
   // const handleClick=()=>{
 
@@ -55,9 +55,11 @@ function App() {
     e.preventDefault();
     const fullName = `${firstName} ${lastName}`;
     
-    
+    setIsSubmitEnabled(firstName && lastName);
 setFullName(fullName);
   };
+
+  
   
 
   return (
@@ -80,10 +82,11 @@ setFullName(fullName);
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
+            required
           />
         </label>
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={isSubmitEnabled}>Submit</button>
         </form>
         <div>
         {fullName && <p>Full Name: {fullName}</p>}
